@@ -16,7 +16,7 @@ def get_config():  # Считывает настройки из файла confi
         sys.exit()  # TODO Сделать восстановление cfg при повреждении/утрате
 
 
-def start_app(): # Установка начальных настроек и инициализация pygame
+def main():
     settings = get_config()
     try:
         pygame.init()
@@ -24,10 +24,15 @@ def start_app(): # Установка начальных настроек и и�
     except TypeError:
         print('config error')
         pygame.quit()
+    all_sprites = pygame.sprite.Group()
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
-def main():
-    pass # TODO Написать основу
+    pygame.quit()  # TODO scoreboard вместо quit
+
 
 if __name__ == '__main__':
-    start_app()
     main()
