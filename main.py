@@ -1,6 +1,6 @@
 import sys
 
-import pygame
+import pygame as pg
 
 
 def get_config():  # Считывает настройки из файла config
@@ -19,19 +19,19 @@ def get_config():  # Считывает настройки из файла confi
 def main():
     settings = get_config()
     try:
-        pygame.init()
-        screen = pygame.display.set_mode((settings['win_width'], settings['win_height']))
+        pg.init()
+        screen = pg.display.set_mode((settings['win_width'], settings['win_height']))
     except TypeError:
         print('config error')
-        pygame.quit()
-    all_sprites = pygame.sprite.Group()
+        pg.quit()
+    all_sprites = pg.sprite.Group()
     running = True
     while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
                 running = False
 
-    pygame.quit()  # TODO scoreboard вместо quit
+    pg.quit()  # TODO scoreboard вместо quit
 
 
 if __name__ == '__main__':
