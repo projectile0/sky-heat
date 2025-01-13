@@ -11,3 +11,5 @@ class Entity(pg.sprite.Sprite):  # Базовый класс сущности
             self.mask = pg.mask.from_surface(self.image)
         except Exception as e:
             print(e)
+
+# TODO Общий класс врагов, класс Player
